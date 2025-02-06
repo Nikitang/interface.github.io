@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/interface.github.io/static/css/main.4e579131.css",
-    "main.js": "/interface.github.io/static/js/main.dfad802f.js",
+    "main.js": "/interface.github.io/static/js/main.10609dc8.js",
     "static/media/productsans.ttf": "/interface.github.io/static/media/productsans.7441ccce8084f727713c.ttf",
     "static/media/left-hand.png": "/interface.github.io/static/media/left-hand.5982999ec257f56121ef.png",
     "static/media/Cattedrale[RUSbypenka220]-Regular.ttf": "/interface.github.io/static/media/Cattedrale[RUSbypenka220]-Regular.6f85f9fcad22f828c6d0.ttf",
     "index.html": "/interface.github.io/index.html",
     "static/media/ArrowBack.svg": "/interface.github.io/static/media/ArrowBack.6fcf22917e13fd3d4382a4217f1c2eab.svg",
     "main.4e579131.css.map": "/interface.github.io/static/css/main.4e579131.css.map",
-    "main.dfad802f.js.map": "/interface.github.io/static/js/main.dfad802f.js.map"
+    "main.10609dc8.js.map": "/interface.github.io/static/js/main.10609dc8.js.map"
   },
   "entrypoints": [
     "static/css/main.4e579131.css",
-    "static/js/main.dfad802f.js"
+    "static/js/main.10609dc8.js"
   ]
 }
