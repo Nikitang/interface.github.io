@@ -77,7 +77,7 @@ const Camera: FC = () => {
         }, 4000);
     };
 
-    console.log(showButton);
+    // console.log(showButton);
 
     return (
         <div className={styles.camera}>
