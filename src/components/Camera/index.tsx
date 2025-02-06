@@ -111,11 +111,11 @@ const Camera: FC = () => {
             </div>
 
             {isHandDetected ? <span>Рука обнаружена.</span> : <span>Рука не обнаружена.</span>}
-            {/* {showButton && ( */}
-            <button className={styles.screenBtn} onClick={captureScreenshot}>
-                Начать проверку
-            </button>
-            {/* )} */}
+            {showButton && (
+                <button className={styles.screenBtn} onClick={captureScreenshot}>
+                    Начать проверку
+                </button>
+            )}
         </div>
     );
 };
