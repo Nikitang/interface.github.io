@@ -97,8 +97,8 @@ $description: rgb(187, 169, 151);
 .hangLogo {
     display: block;
     position: absolute;
-    top: 55%;
-    left: 45%;
+    top: 58%;
+    left: 48%;
     transform: translate(-50%, -43%);
 
     margin: 0 auto;
@@ -106,8 +106,8 @@ $description: rgb(187, 169, 151);
 
     transform: translateY(1/2);
     img {
-        width: 110%;
-        height: 100%;
+        width: 100%;
+        height: 90%;
 
         filter: invert(1) sepia(1) saturate(1000%) hue-rotate(310deg) brightness(70%)
             drop-shadow(2px 2px 5px $fontColor);

@@ -23,9 +23,12 @@ const Camera: FC = () => {
         const runHandpose = async () => {
             await tf.setBackend('webgl');
             const net = await handpose.load();
-            setInterval(() => {
+            const inter = setInterval(() => {
                 detect(net);
             }, 100);
+            console.log(111);
+
+            return () => clearInterval(inter);
         };
 
         runHandpose();
@@ -51,7 +54,7 @@ const Camera: FC = () => {
                 const currentKeypoints = hands[0].landmarks.map((kp) => ({ x: kp[0], y: kp[1] }));
                 if (previousKeypointsRef.current) {
                     const movement = checkMove(previousKeypointsRef.current, currentKeypoints);
-                    if (movement < 50) {
+                    if (movement < 10) {
                         setShowButton(true);
                     }
                 }
