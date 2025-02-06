@@ -79,9 +79,9 @@ const Camera: FC = () => {
 
     return (
         <div className={styles.camera}>
-            <Link className={styles.arrowBack} to={'/'}>
+            <a className={styles.arrowBack} href={'/'}>
                 <img src={arrowBack} alt="" />
-            </Link>
+            </a>
             <h1>Хиромантия</h1>
             <span className={styles.description}>
                 Узнайте тайны о своей будущей жизни. Сфотографируйте свою руку, чтобы узнать больше
