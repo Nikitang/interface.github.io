@@ -1,0 +1,33 @@
+$bgColor: #000;
+
+body {
+    background-color: $bgColor;
+}
+
+.back {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+
+    text-decoration: none;
+
+    span {
+        color: wheat;
+    }
+}
+
+.arrowBack {
+    width: 40px;
+    height: 40px;
+    transform: rotate(180deg);
+}
+
+.rightHand {
+    width: 30px;
+    height: 30px;
+}
