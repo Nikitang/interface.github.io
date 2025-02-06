@@ -50,14 +50,13 @@ const Camera: FC = () => {
             const hands = await net.estimateHands(video);
             if (hands.length > 0) {
                 setIsHandDetected(true);
-
+                setShowButton(true);
                 const currentKeypoints = hands[0].landmarks.map((kp) => ({ x: kp[0], y: kp[1] }));
-                if (previousKeypointsRef.current) {
-                    const movement = checkMove(previousKeypointsRef.current, currentKeypoints);
-                    if (movement < 10) {
-                        setShowButton(true);
-                    }
-                }
+                // if (previousKeypointsRef.current) {
+                //     const movement = checkMove(previousKeypointsRef.current, currentKeypoints);
+                //         setShowButton(true);
+
+                // }
                 previousKeypointsRef.current = currentKeypoints;
             } else {
                 setIsHandDetected(false);
