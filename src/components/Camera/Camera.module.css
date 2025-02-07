@@ -73,11 +73,11 @@
 
 .videoCam {
     position: relative;
-    margin-top: 3vh;
+    padding: 3vh 10px 0 10px;
     border-radius: 10px;
 
     width: 40rem;
-    height: 28rem;
+    height: 26rem;
 
     aspect-ratio: 0.5;
 }
@@ -85,7 +85,7 @@
 .hangLogo {
     display: block;
     position: absolute;
-    top: 49%;
+    top: 47%;
     left: 47%;
     transform: translate(-50%, -43%);
 
@@ -94,8 +94,8 @@
 }
 
 .hangLogo img {
-    width: 30rem;
-    height: 28rem;
+    width: 28rem;
+    height: 26rem;
     stroke-width: 0.5px;
     filter: invert(1) sepia(1) saturate(1000%) hue-rotate(310deg) brightness(70%)
         drop-shadow(2px 2px 5px var(--fontColor));
