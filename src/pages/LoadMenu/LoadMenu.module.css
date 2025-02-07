@@ -1,32 +1,79 @@
+:root {
+    --fontColor: rgb(194 147 102);
+    --btnColor: rgb(41 37 36);
+    --description: rgb(187, 169, 151);
+}
+
 .menu {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
-
-    height: 90vh;
 }
 
-.menu span {
-    color: rgb(187, 169, 151);
-    font-family: 'Product Sans';
-}
-
-.img {
+.header {
     display: flex;
-    flex-direction: column;
-
-    margin-top: 10%;
+    align-items: center;
+    justify-content: center;
 }
 
 .link {
+    position: relative;
+    right: 40%;
+    top: 58%;
+
+    transform: translateY(70%);
+
     text-decoration: none;
 }
 
-.link img {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    margin-top: 5%;
+    height: 80vh;
+}
+
+.txt {
+    color: var(--fontColor);
+    font-family: 'Gothiv';
+    font-size: 19px;
+    text-align: center;
+}
+
+.desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    width: 85%;
+}
+
+.desc span {
+    color: var(--description);
+    font-family: 'Product Sans';
+    font-size: 23px;
+    text-align: center;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30%;
+
+    width: 60%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--btnColor);
+    text-decoration: none;
+}
+
+.btn span {
+    font-family: 'Product Sans';
+    font-size: 20px;
+    color: var(--fontColor);
+    cursor: pointer;
 }
