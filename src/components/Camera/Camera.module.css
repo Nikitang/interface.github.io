@@ -51,8 +51,8 @@
     position: relative;
     z-index: 5;
 
-    width: 640px;
-    height: 410px;
+    width: 500px;
+    height: 390px;
     margin-top: 3vh;
 
     /* border: 2px solid var(--fontColor); */

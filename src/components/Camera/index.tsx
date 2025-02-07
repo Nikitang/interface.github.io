@@ -23,7 +23,7 @@ const Camera: FC = () => {
     useEffect(() => {
         if (isScanning) {
             gsap.to(`.${styles.scanningLine}`, {
-                y: -400, // Длина линии вниз
+                y: -380, // Длина линии вниз
                 duration: 1,
                 ease: 'power1.inOut',
                 yoyo: true,
@@ -128,11 +128,11 @@ const Camera: FC = () => {
 
             {/* {isHandDetected ? <span>Рука обнаружена.</span> : <span>Рука не обнаружена.</span>} */}
 
-            {/* {showButton && ( */}
-            <button className={styles.screenBtn} onClick={captureScreenshot}>
-                Начать проверку
-            </button>
-            {/* )} */}
+            {showButton && (
+                <button className={styles.screenBtn} onClick={captureScreenshot}>
+                    Начать проверку
+                </button>
+            )}
         </div>
     );
 };
