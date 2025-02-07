@@ -23,9 +23,12 @@ const Camera: FC = () => {
         const runHandpose = async () => {
             await tf.setBackend('webgl');
             const net = await handpose.load();
-            setInterval(() => {
+            const inter = setInterval(() => {
                 detect(net);
             }, 100);
+            console.log(111);
+
+            return () => clearInterval(inter);
         };
 
         runHandpose();
@@ -47,14 +50,13 @@ const Camera: FC = () => {
             const hands = await net.estimateHands(video);
             if (hands.length > 0) {
                 setIsHandDetected(true);
-
+                setShowButton(true);
                 const currentKeypoints = hands[0].landmarks.map((kp) => ({ x: kp[0], y: kp[1] }));
-                if (previousKeypointsRef.current) {
-                    const movement = checkMove(previousKeypointsRef.current, currentKeypoints);
-                    if (movement < 50) {
-                        setShowButton(true);
-                    }
-                }
+                // if (previousKeypointsRef.current) {
+                //     const movement = checkMove(previousKeypointsRef.current, currentKeypoints);
+                //         setShowButton(true);
+
+                // }
                 previousKeypointsRef.current = currentKeypoints;
             } else {
                 setIsHandDetected(false);
@@ -75,13 +77,13 @@ const Camera: FC = () => {
         }, 4000);
     };
 
-    console.log(showButton);
+    // console.log(showButton);
 
     return (
         <div className={styles.camera}>
-            <Link className={styles.arrowBack} to={'/'}>
+            <a className={styles.arrowBack} href={'/'}>
                 <img src={arrowBack} alt="" />
-            </Link>
+            </a>
             <h1>Хиромантия</h1>
             <span className={styles.description}>
                 Узнайте тайны о своей будущей жизни. Сфотографируйте свою руку, чтобы узнать больше
@@ -111,6 +113,7 @@ const Camera: FC = () => {
             </div>
 
             {/* {isHandDetected ? <span>Рука обнаружена.</span> : <span>Рука не обнаружена.</span>} */}
+
             {/* {showButton && ( */}
             <button className={styles.screenBtn} onClick={captureScreenshot}>
                 Начать проверку
