@@ -1,0 +1,29 @@
+.modal {
+    position: fixed;
+    bottom: 10%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+    background-color: rgb(41 37 36);
+    width: 40%;
+    height: 5vh;
+
+    transform: translate(0, 0);
+    opacity: 0;
+
+    animation: modal 1s forwards 0.6s;
+}
+
+.modal span {
+    color: rgb(187, 169, 151);
+}
+
+@keyframes modal {
+    to {
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+}

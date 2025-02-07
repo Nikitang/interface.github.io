@@ -1,0 +1,32 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 90vh;
+}
+
+.menu span {
+    color: rgb(187, 169, 151);
+    font-family: 'Product Sans';
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 10%;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.link img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-top: 5%;
+}

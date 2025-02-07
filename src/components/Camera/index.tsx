@@ -9,22 +9,27 @@ import styles from './Camera.module.css';
 import hand from '../../assets/svg/l-hand.svg';
 import arrowBack from '../../assets/svg/ArrowBack.svg';
 import { checkMove } from '../../utils/checkMove';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Modal from '../Modal';
 
 const Camera: FC = () => {
+    const navigate = useNavigate();
+
     const webcamRef = useRef<Webcam>(null);
     const [isHandDetected, setIsHandDetected] = useState(false);
     const [screenshot, setScreenshot] = useState<string | null>(null);
     const [isScanning, setIsScanning] = useState(false);
     const [showButton, setShowButton] = useState(false);
     const [cameraError, setCameraError] = useState(false);
+    const [videoWidth, setVideoWidth] = useState<number>(0);
+    const [scanSuccess, setScanSuccess] = useState(false);
     // const detectionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const previousKeypointsRef = useRef<{ x: number; y: number }[] | null>(null);
 
     useEffect(() => {
         if (isScanning) {
             gsap.to(`.${styles.scanningLine}`, {
-                y: -280, // Длина линии вниз
+                y: -260, // Длина линии вниз
                 duration: 1,
                 ease: 'power1.inOut',
                 yoyo: true,
@@ -46,6 +51,20 @@ const Camera: FC = () => {
         };
 
         runHandpose();
+    }, []);
+
+    useEffect(() => {
+        const checkVideoWidth = () => {
+            if (webcamRef.current && webcamRef.current.video) {
+                const width = webcamRef.current.video.videoWidth;
+                setVideoWidth(width);
+            }
+        };
+        console.log('check-handpose');
+
+        const interval = setInterval(checkVideoWidth, 100); // Проверяем каждые 100 мс
+
+        return () => clearInterval(interval); // Очистка интервала при размонтировании
     }, []);
 
     const detect = async (net: HandPose) => {
@@ -84,9 +103,13 @@ const Camera: FC = () => {
             const screenshot = webcamRef.current.getScreenshot();
             setScreenshot(screenshot);
             setIsScanning(true);
+            setTimeout(() => {
+                setScanSuccess(true);
+            }, 2500);
         }
 
         setTimeout(() => {
+            navigate('/success');
             setIsScanning(false);
         }, 4000);
     };
@@ -95,7 +118,7 @@ const Camera: FC = () => {
         setCameraError(true);
     };
 
-    console.log(webcamRef.current?.video?.width);
+    console.log(webcamRef.current?.video);
 
     return (
         <div className={styles.camera}>
@@ -136,20 +159,22 @@ const Camera: FC = () => {
                     )
                 )}
                 {isScanning && <div className={styles.scanningLine}></div>}
-                {!cameraError && webcamRef.current?.video?.width! > 50 && (
+                {!cameraError && videoWidth > 50 && (
                     <div className={styles.hangLogo}>
-                        <img src={hand} alt="Трафарет" />
+                        <img src={hand} alt="" />
                     </div>
                 )}
             </div>
 
             {/* {isHandDetected ? <span>Рука обнаружена.</span> : <span>Рука не обнаружена.</span>} */}
 
-            {showButton && (
+            {showButton && !cameraError && !isScanning && (
                 <button className={styles.screenBtn} onClick={captureScreenshot}>
                     Начать проверку
                 </button>
             )}
+
+            {scanSuccess && <Modal />}
         </div>
     );
 };
