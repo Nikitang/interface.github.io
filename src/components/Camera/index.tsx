@@ -17,13 +17,14 @@ const Camera: FC = () => {
     const [screenshot, setScreenshot] = useState<string | null>(null);
     const [isScanning, setIsScanning] = useState(false);
     const [showButton, setShowButton] = useState(false);
+    const [cameraError, setCameraError] = useState(false);
     // const detectionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const previousKeypointsRef = useRef<{ x: number; y: number }[] | null>(null);
 
     useEffect(() => {
         if (isScanning) {
             gsap.to(`.${styles.scanningLine}`, {
-                y: -440, // Длина линии вниз
+                y: -280, // Длина линии вниз
                 duration: 1,
                 ease: 'power1.inOut',
                 yoyo: true,
@@ -54,10 +55,10 @@ const Camera: FC = () => {
             webcamRef.current.video.readyState === 4
         ) {
             const video = webcamRef.current.video;
-            // const videoWidth = webcamRef.current.video.videoWidth;
+            const videoWidth = webcamRef.current.video.videoWidth;
             // const videoHeight = webcamRef.current.video.videoHeight;
 
-            // video.width = videoWidth;
+            video.width = videoWidth;
             // video.height = videoHeight;
 
             const hands = await net.estimateHands(video);
@@ -90,7 +91,11 @@ const Camera: FC = () => {
         }, 4000);
     };
 
-    console.log(webcamRef.current);
+    const handleUserMediaError = () => {
+        setCameraError(true);
+    };
+
+    console.log(webcamRef.current?.video?.width);
 
     return (
         <div className={styles.camera}>
@@ -103,27 +108,39 @@ const Camera: FC = () => {
             </span>
             <div className={styles.video}>
                 {!isScanning ? (
-                    <Webcam
-                        audio={false}
-                        ref={webcamRef}
-                        screenshotFormat="image/png"
-                        forceScreenshotSourceSize={false}
-                        videoConstraints={{
-                            width: { ideal: 900 },
-                            height: { ideal: 1200 },
-                            facingMode: 'environment',
-                        }}
-                        className={styles.videoCam}
-                    />
+                    !cameraError ? (
+                        <Webcam
+                            audio={false}
+                            ref={webcamRef}
+                            screenshotFormat="image/png"
+                            forceScreenshotSourceSize={false}
+                            videoConstraints={{
+                                width: { ideal: 900 },
+                                height: { ideal: 1200 },
+                                facingMode: 'environment',
+                            }}
+                            className={styles.videoCam}
+                            onUserMediaError={handleUserMediaError}
+                        />
+                    ) : (
+                        <div className={styles.cameraError}>
+                            <span>
+                                Ошибка доступа к камере. Пожалуйста, предоставьте доступ к камере
+                                или проверьте подключение.
+                            </span>
+                        </div>
+                    )
                 ) : (
                     screenshot && (
                         <img src={screenshot} alt="Скриншот" className={styles.screenshot} />
                     )
                 )}
                 {isScanning && <div className={styles.scanningLine}></div>}
-                <div className={styles.hangLogo}>
-                    <img src={hand} alt="Трафарет" />
-                </div>
+                {!cameraError && webcamRef.current?.video?.width! > 50 && (
+                    <div className={styles.hangLogo}>
+                        <img src={hand} alt="Трафарет" />
+                    </div>
+                )}
             </div>
 
             {/* {isHandDetected ? <span>Рука обнаружена.</span> : <span>Рука не обнаружена.</span>} */}

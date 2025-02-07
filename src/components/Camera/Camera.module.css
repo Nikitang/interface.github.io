@@ -18,6 +18,30 @@
     color: var(--fontColor);
 }
 
+.cameraError {
+    position: relative;
+    z-index: 5;
+    margin-top: 5vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 400px;
+    height: 100%;
+
+    /* border: 2px solid var(--fontColor); */
+    border-radius: 10px;
+}
+
+.cameraError span {
+    width: 80%;
+    margin-top: 10vh;
+    text-align: center;
+    font-family: 'Product Sans';
+    color: var(--description);
+}
+
 .arrowBack {
     position: relative;
     top: 3%;
