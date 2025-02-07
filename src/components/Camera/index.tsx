@@ -3,7 +3,7 @@ import Webcam from 'react-webcam';
 import * as handpose from '@tensorflow-models/handpose';
 import * as tf from '@tensorflow/tfjs';
 import { AnnotatedPrediction, HandPose } from '@tensorflow-models/handpose';
-import { Link } from 'react-router-dom';
+import gsap from 'gsap';
 
 import styles from './Camera.module.css';
 import hand from '../../assets/svg/l-hand.svg';
@@ -18,6 +18,18 @@ const Camera: FC = () => {
     const [showButton, setShowButton] = useState(false);
     // const detectionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const previousKeypointsRef = useRef<{ x: number; y: number }[] | null>(null);
+
+    useEffect(() => {
+        if (isScanning) {
+            gsap.to(`.${styles.scanningLine}`, {
+                y: -440, // Длина линии вниз
+                duration: 1,
+                ease: 'power1.inOut',
+                yoyo: true,
+                repeat: -1, // Бесконечное повторение
+            });
+        }
+    }, [isScanning]);
 
     useEffect(() => {
         const runHandpose = async () => {

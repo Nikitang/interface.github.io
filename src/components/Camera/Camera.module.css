@@ -61,7 +61,7 @@
 
 .scanningLine {
     position: relative;
-    top: 0;
+    bottom: 10px;
     z-index: 5;
 
     width: 100%;
@@ -69,20 +69,6 @@
 
     background-color: var(--fontColor);
     border-radius: 5px;
-    animation: scan 2s linear infinite;
-}
-
-@keyframes scan {
-    0% {
-        top: -87%;
-    }
-
-    50% {
-        top: -3%;
-    }
-    100% {
-        top: -87%;
-    }
 }
 
 .videoCam {
