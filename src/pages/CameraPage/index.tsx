@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import Camera from '../../components/Camera';
-import styles from './CameraPage.module.scss';
+import styles from './CameraPage.module.css';
 import arrowBack from '../../assets/images/goBack.png';
 import rightHand from '../../assets/images/hand-r.png';
 import { Link } from 'react-router-dom';

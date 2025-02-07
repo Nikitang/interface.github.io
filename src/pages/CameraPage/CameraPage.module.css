@@ -1,7 +1,9 @@
-$bgColor: #000;
+:root {
+    --bgColor: #000;
+}
 
 body {
-    background-color: $bgColor;
+    background-color: var(--bgColor);
 }
 
 .back {
@@ -15,10 +17,10 @@ body {
     gap: 15px;
 
     text-decoration: none;
+}
 
-    span {
-        color: wheat;
-    }
+.back span {
+    color: wheat;
 }
 
 .arrowBack {

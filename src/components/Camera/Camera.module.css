@@ -1,6 +1,8 @@
-$fontColor: rgb(194 147 102);
-$btnColor: rgb(41 37 36);
-$description: rgb(187, 169, 151);
+:root {
+    --fontColor: rgb(194 147 102);
+    --btnColor: rgb(41 37 36);
+    --description: rgb(187, 169, 151);
+}
 
 .camera {
     display: flex;
@@ -8,10 +10,11 @@ $description: rgb(187, 169, 151);
     align-items: center;
     flex-direction: column;
 
-    h1 {
-        color: $fontColor;
-    }
     overflow: hidden;
+}
+
+.camera h1 {
+    color: var(--fontColor);
 }
 
 .arrowBack {
@@ -20,10 +23,10 @@ $description: rgb(187, 169, 151);
     right: 45%;
     transform: translate(55%, 55%);
     transition: 0.15s ease-in-out;
+}
 
-    &:hover {
-        filter: sepia(1) brightness(1);
-    }
+.arrowBack:hover {
+    filter: sepia(1) brightness(1);
 }
 
 .description {
@@ -32,17 +35,14 @@ $description: rgb(187, 169, 151);
     font-family: 'Product Sans';
     font-size: 18px;
     text-align: center;
-    color: $description;
+    color: var(--description);
 }
 
 .video {
     position: relative;
 
-    min-height: 305px;
-    max-width: 420px;
-
     video {
-        border: 2px solid $fontColor;
+        border: 5px solid var(--fontColor);
     }
 }
 
@@ -50,11 +50,11 @@ $description: rgb(187, 169, 151);
     position: relative;
     z-index: 5;
 
-    width: 99%;
-    height: auto;
-    margin-top: 10vh;
+    width: 40rem;
+    height: 28rem;
+    margin-top: 5vh;
 
-    border: 2px solid $fontColor;
+    border: 2px solid var(--fontColor);
     border-radius: 10px;
 }
 
@@ -66,52 +66,53 @@ $description: rgb(187, 169, 151);
     width: 100%;
     height: 5px;
 
-    background-color: $fontColor;
+    background-color: var(--fontColor);
     border-radius: 5px;
     animation: scan 2s linear infinite;
+}
 
-    @keyframes scan {
-        0% {
-            top: -77%;
-        }
+@keyframes scan {
+    0% {
+        top: -87%;
+    }
 
-        50% {
-            top: -3%;
-        }
-        100% {
-            top: -77%;
-        }
+    50% {
+        top: -3%;
+    }
+    100% {
+        top: -87%;
     }
 }
 
 .videoCam {
     position: relative;
-    margin-top: 10vh;
+    margin-top: 5vh;
     border-radius: 10px;
 
-    width: 400px;
-    height: 300px;
+    width: 40rem;
+    height: 28rem;
     aspect-ratio: 0.5;
 }
 
 .hangLogo {
     display: block;
     position: absolute;
-    top: 55%;
-    left: 45%;
+    top: 49%;
+    left: 47%;
     transform: translate(-50%, -43%);
 
     margin: 0 auto;
     z-index: 5;
 
     transform: translateY(1/2);
-    img {
-        width: 110%;
-        height: 100%;
+}
 
-        filter: invert(1) sepia(1) saturate(1000%) hue-rotate(310deg) brightness(70%)
-            drop-shadow(2px 2px 5px $fontColor);
-    }
+.hangLogo img {
+    width: 30rem;
+    height: 28rem;
+
+    filter: invert(1) sepia(1) saturate(1000%) hue-rotate(310deg) brightness(70%)
+        drop-shadow(2px 2px 5px var(--fontColor));
 }
 
 .screenBtn {
@@ -122,18 +123,18 @@ $description: rgb(187, 169, 151);
 
     width: 50%;
     height: 45px;
-    background-color: $btnColor;
+    background-color: var(--btnColor);
     border: none;
     border-radius: 0.5rem;
     margin-top: 4vh;
 
-    color: $fontColor;
+    color: var(--fontColor);
     transition: all 0.2s ease-in;
 
-    &:hover {
-        background-color: $fontColor;
-        color: $btnColor;
-    }
+    /* &:hover {
+        background-color: var(--fontColor);
+        color: var(--btnColor);
+    } */
 }
 
 .screenDiv {

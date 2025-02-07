@@ -5,8 +5,8 @@ import * as tf from '@tensorflow/tfjs';
 import { AnnotatedPrediction, HandPose } from '@tensorflow-models/handpose';
 import { Link } from 'react-router-dom';
 
-import styles from './Camera.module.scss';
-import hand from '../../assets/images/left-hand.png';
+import styles from './Camera.module.css';
+import hand from '../../assets/svg/l-hand.svg';
 import arrowBack from '../../assets/svg/ArrowBack.svg';
 import { checkMove } from '../../utils/checkMove';
 
@@ -110,12 +110,12 @@ const Camera: FC = () => {
                 </div>
             </div>
 
-            {isHandDetected ? <span>Рука обнаружена.</span> : <span>Рука не обнаружена.</span>}
-            {showButton && (
-                <button className={styles.screenBtn} onClick={captureScreenshot}>
-                    Начать проверку
-                </button>
-            )}
+            {/* {isHandDetected ? <span>Рука обнаружена.</span> : <span>Рука не обнаружена.</span>} */}
+            {/* {showButton && ( */}
+            <button className={styles.screenBtn} onClick={captureScreenshot}>
+                Начать проверку
+            </button>
+            {/* )} */}
         </div>
     );
 };
