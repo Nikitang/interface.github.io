@@ -23,7 +23,7 @@ const Camera: FC = () => {
     useEffect(() => {
         if (isScanning) {
             gsap.to(`.${styles.scanningLine}`, {
-                y: -440, // Длина линии вниз
+                y: -400, // Длина линии вниз
                 duration: 1,
                 ease: 'power1.inOut',
                 yoyo: true,
@@ -107,9 +107,10 @@ const Camera: FC = () => {
                         audio={false}
                         ref={webcamRef}
                         screenshotFormat="image/png"
+                        forceScreenshotSourceSize={false}
                         videoConstraints={{
-                            width: { ideal: 900 },
-                            height: { ideal: 1200 },
+                            width: 720,
+                            height: 1280,
                             facingMode: 'environment',
                         }}
                         className={styles.videoCam}

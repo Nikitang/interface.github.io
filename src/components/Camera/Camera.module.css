@@ -52,7 +52,7 @@
     z-index: 5;
 
     width: 640px;
-    height: 448px;
+    height: 410px;
     margin-top: 3vh;
 
     /* border: 2px solid var(--fontColor); */
@@ -76,9 +76,11 @@
     padding: 3vh 10px 0 10px;
     border-radius: 10px;
 
-    width: 40rem;
-    height: 26rem;
+    width: 500px;
+    height: 400px;
 
+    transform: scale(1);
+    transform-origin: center;
     aspect-ratio: 0.5;
 }
 
@@ -94,8 +96,8 @@
 }
 
 .hangLogo img {
-    width: 28rem;
-    height: 26rem;
+    width: 25rem;
+    height: 23rem;
     stroke-width: 0.5px;
     filter: invert(1) sepia(1) saturate(1000%) hue-rotate(310deg) brightness(70%)
         drop-shadow(2px 2px 5px var(--fontColor));
