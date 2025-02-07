@@ -14,6 +14,7 @@
 }
 
 .camera h1 {
+    margin-top: 0;
     color: var(--fontColor);
 }
 
@@ -40,21 +41,21 @@
 
 .video {
     position: relative;
+}
 
-    video {
-        border: 5px solid var(--fontColor);
-    }
+.video video {
+    /* border: 5px solid var(--fontColor); */
 }
 
 .screenshot {
     position: relative;
     z-index: 5;
 
-    width: 40rem;
-    height: 28rem;
-    margin-top: 5vh;
+    width: 640px;
+    height: 448px;
+    margin-top: 3vh;
 
-    border: 2px solid var(--fontColor);
+    /* border: 2px solid var(--fontColor); */
     border-radius: 10px;
 }
 
@@ -86,7 +87,7 @@
 
 .videoCam {
     position: relative;
-    margin-top: 5vh;
+    margin-top: 3vh;
     border-radius: 10px;
 
     width: 40rem;
@@ -109,7 +110,7 @@
 .hangLogo img {
     width: 30rem;
     height: 28rem;
-
+    stroke-width: 0.5px;
     filter: invert(1) sepia(1) saturate(1000%) hue-rotate(310deg) brightness(70%)
         drop-shadow(2px 2px 5px var(--fontColor));
 }
