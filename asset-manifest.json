@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/interface.github.io/static/css/main.13ced0d3.css",
-    "main.js": "/interface.github.io/static/js/main.b4362d57.js",
+    "main.css": "/interface.github.io/static/css/main.5017372d.css",
+    "main.js": "/interface.github.io/static/js/main.b507c845.js",
     "static/media/productsans.ttf": "/interface.github.io/static/media/productsans.7441ccce8084f727713c.ttf",
     "static/media/Cattedrale[RUSbypenka220]-Regular.ttf": "/interface.github.io/static/media/Cattedrale[RUSbypenka220]-Regular.6f85f9fcad22f828c6d0.ttf",
     "static/media/l-hand.svg": "/interface.github.io/static/media/l-hand.62a7ab463f0f4f4f524614d04fd85775.svg",
     "index.html": "/interface.github.io/index.html",
     "static/media/ArrowBack.svg": "/interface.github.io/static/media/ArrowBack.6fcf22917e13fd3d4382a4217f1c2eab.svg",
-    "main.13ced0d3.css.map": "/interface.github.io/static/css/main.13ced0d3.css.map",
-    "main.b4362d57.js.map": "/interface.github.io/static/js/main.b4362d57.js.map"
+    "main.5017372d.css.map": "/interface.github.io/static/css/main.5017372d.css.map",
+    "main.b507c845.js.map": "/interface.github.io/static/js/main.b507c845.js.map"
   },
   "entrypoints": [
-    "static/css/main.13ced0d3.css",
-    "static/js/main.b4362d57.js"
+    "static/css/main.5017372d.css",
+    "static/js/main.b507c845.js"
   ]
 }
