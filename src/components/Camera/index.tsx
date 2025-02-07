@@ -54,11 +54,11 @@ const Camera: FC = () => {
             webcamRef.current.video.readyState === 4
         ) {
             const video = webcamRef.current.video;
-            const videoWidth = webcamRef.current.video.videoWidth;
-            const videoHeight = webcamRef.current.video.videoHeight;
+            // const videoWidth = webcamRef.current.video.videoWidth;
+            // const videoHeight = webcamRef.current.video.videoHeight;
 
-            video.width = videoWidth;
-            video.height = videoHeight;
+            // video.width = videoWidth;
+            // video.height = videoHeight;
 
             const hands = await net.estimateHands(video);
             if (hands.length > 0) {
