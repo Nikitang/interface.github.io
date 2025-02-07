@@ -9,6 +9,7 @@ import styles from './Camera.module.css';
 import hand from '../../assets/svg/l-hand.svg';
 import arrowBack from '../../assets/svg/ArrowBack.svg';
 import { checkMove } from '../../utils/checkMove';
+import { Link } from 'react-router-dom';
 
 const Camera: FC = () => {
     const webcamRef = useRef<Webcam>(null);
@@ -89,13 +90,13 @@ const Camera: FC = () => {
         }, 4000);
     };
 
-    // console.log(showButton);
+    console.log(webcamRef.current);
 
     return (
         <div className={styles.camera}>
-            <a className={styles.arrowBack} href={'/'}>
+            <Link to={'/'} className={styles.arrowBack}>
                 <img src={arrowBack} alt="" />
-            </a>
+            </Link>
             <h1>Хиромантия</h1>
             <span className={styles.description}>
                 Узнайте тайны о своей будущей жизни. Сфотографируйте свою руку, чтобы узнать больше
